@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Professional Student Registration Form with JavaScript validation">
+
+    <title>Student Registration | Project 4</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="header-content">
+
+            <div class="logo">
+                <span class="logo-icon">✓</span>
+                <span>StudentHub</span>
+            </div>
+
+            <span class="project-label">
+                Frontend Project 4
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+    <main class="main-container">
+
+        <!-- Intro -->
+        <section class="intro">
+
+            <p class="eyebrow">
+                STUDENT REGISTRATION
+            </p>
+
+            <h1>
+                Create your
+                <span>student account.</span>
+            </h1>
+
+            <p class="intro-text">
+                Fill in your details below to register.
+                All fields are validated before submission.
+            </p>
+
+        </section>
+
+
+        <!-- Registration Card -->
+        <section class="form-card">
+
+            <div class="form-header">
+
+                <div>
+                    <h2>Registration Form</h2>
+
+                    <p>
+                        Please enter your details carefully.
+                    </p>
+                </div>
+
+                <div class="form-icon">
+                    ✦
+                </div>
+
+            </div>
+
+
+            <!-- Success Message -->
+            <div
+                id="successMessage"
+                class="success-message"
+                role="status"
+                aria-live="polite"
+                hidden
+            >
+                <span class="success-icon">✓</span>
+
+                <div>
+                    <strong>Registration successful!</strong>
+                    <p>Your details have been validated successfully.</p>
+                </div>
+            </div>
+
+
+            <!-- Form -->
+            <form id="registrationForm" novalidate>
+
+
+                <!-- Full Name -->
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                        minlength="3"
+                        aria-describedby="nameError"
+                    >
+
+                    <small
+                        id="nameError"
+                        class="error-message"
+                        aria-live="polite"
+                    ></small>
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        autocomplete="email"
+                        required
+                        aria-describedby="emailError"
+                    >
+
+                    <small
+                        id="emailError"
+                        class="error-message"
+                        aria-live="polite"
+                    ></small>
+
+                </div>
+
+
+                <!-- Phone -->
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="10-digit phone number"
+                        autocomplete="tel"
+                        maxlength="10"
+                        required
+                        aria-describedby="phoneError"
+                    >
+
+                    <small
+                        id="phoneError"
+                        class="error-message"
+                        aria-live="polite"
+                    ></small>
+
+                </div>
+
+
+                <!-- Course -->
+                <div class="form-group">
+
+                    <label for="course">
+                        Course
+                        <span class="required">*</span>
+                    </label>
+
+                    <select
+                        id="course"
+                        name="course"
+                        required
+                        aria-describedby="courseError"
+                    >
+
+                        <option value="">
+                            Select your course
+                        </option>
+
+                        <option value="cse">
+                            Computer Science and Engineering
+                        </option>
+
+                        <option value="ise">
+                            Information Science and Engineering
+                        </option>
+
+                        <option value="ece">
+                            Electronics and Communication Engineering
+                        </option>
+
+                        <option value="eee">
+                            Electrical and Electronics Engineering
+                        </option>
+
+                        <option value="me">
+                            Mechanical Engineering
+                        </option>
+
+                        <option value="civil">
+                            Civil Engineering
+                        </option>
+
+                    </select>
+
+                    <small
+                        id="courseError"
+                        class="error-message"
+                        aria-live="polite"
+                    ></small>
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                        <span class="required">*</span>
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a strong password"
+                            autocomplete="new-password"
+                            required
+                            aria-describedby="passwordError passwordHelp"
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <small
+                        id="passwordHelp"
+                        class="help-text"
+                    >
+                        Minimum 8 characters with uppercase,
+                        lowercase, number and special character.
+                    </small>
+
+                    <small
+                        id="passwordError"
+                        class="error-message"
+                        aria-live="polite"
+                    ></small>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                        <span class="required">*</span>
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Re-enter your password"
+                            autocomplete="new-password"
+                            required
+                            aria-describedby="confirmPasswordError"
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="toggleConfirmPassword"
+                            aria-label="Show confirm password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <small
+                        id="confirmPasswordError"
+                        class="error-message"
+                        aria-live="polite"
+                    ></small>
+
+                </div>
+
+
+                <!-- Terms -->
+                <div class="terms-group">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                        aria-describedby="termsError"
+                    >
+
+                    <label for="terms">
+                        I agree to the terms and conditions.
+                    </label>
+
+                </div>
+
+                <small
+                    id="termsError"
+                    class="error-message"
+                    aria-live="polite"
+                ></small>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Register Account
+                    <span>→</span>
+                </button>
+
+
+                <p class="form-note">
+                    <span>*</span>
+                    All fields marked with an asterisk are required.
+                </p>
+
+            </form>
+
+        </section>
+
+
+        <!-- Features -->
+        <section class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <h3>Secure Validation</h3>
+
+                    <p>
+                        Your input is checked before submission.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                <div>
+                    <h3>Instant Feedback</h3>
+
+                    <p>
+                        Errors are displayed immediately after validation.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ♿
+                </div>
+
+                <div>
+                    <h3>Accessible</h3>
+
+                    <p>
+                        ARIA attributes improve accessibility.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 StudentHub | Frontend Development Project 4
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
